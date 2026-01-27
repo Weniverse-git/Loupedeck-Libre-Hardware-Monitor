@@ -1,0 +1,12 @@
+# Build outputs
+src/bin/
+src/obj/
+
+# Release artifacts (uploaded separately as GitHub Release assets)
+release/
+
+# IDE / Editor
+.vs/
+*.user
+*.suo
+*.cache

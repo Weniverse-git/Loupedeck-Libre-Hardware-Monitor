@@ -1,0 +1,107 @@
+namespace Loupedeck.LHMMonitorPlugin.Commands
+{
+    using System;
+    using Loupedeck;
+    using Loupedeck.LHMMonitorPlugin.Helpers;
+    using Loupedeck.LHMMonitorPlugin.Services;
+
+    /// <summary>
+    /// CPU/GPU/VRAM/RAM 4줄 통합 블럭 그래프.
+    /// 각 줄 5블럭, 블럭 하나당 20%.
+    /// 위에서부터: CPU(초록), GPU(파랑), VRAM(연파랑), RAM(노랑).
+    /// </summary>
+    public class TotalBlockCommand : BaseSensorCommand
+    {
+        private const string CpuLoadSensorId = "/amdcpu/0/load/0";
+        private const string GpuLoadSensorId = "/gpu-nvidia/0/load/0";
+        private const string GpuMemUsedSensorId = "/gpu-nvidia/0/smalldata/1";
+        private const string GpuMemTotalSensorId = "/gpu-nvidia/0/smalldata/2";
+        private const string RamLoadSensorId = "/ram/load/0";
+
+        private const int Columns = 5;
+        private const int RowCount = 4;
+
+        private static readonly BitmapColor CpuBaseColor = new BitmapColor(0, 200, 80);
+        private static readonly BitmapColor GpuBaseColor = new BitmapColor(60, 120, 255);
+        private static readonly BitmapColor VramBaseColor = new BitmapColor(100, 180, 255);
+        private static readonly BitmapColor RamBaseColor = new BitmapColor(200, 170, 0);
+        private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
+
+        public TotalBlockCommand()
+            : base("Total Load (Block)", "TOTAL Load Block View", "Hardware Monitor")
+        {
+        }
+
+        protected override string GetLabel() => "TOTAL";
+
+        protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
+        {
+            var cpuLoad = GetCpuLoadPercent(service);
+            var gpuLoad = GetGpuLoadPercent(service);
+            var vramLoad = GetVramPercent(service);
+            var ramLoad = GetRamLoadPercent(service);
+
+            builder.DrawText(GetLabel(), 0, 2, builder.Width, 16,
+                DisplayHelper.LabelColor, 11);
+
+            DrawRow(builder, 0, cpuLoad, CpuBaseColor);
+            DrawRow(builder, 1, gpuLoad, GpuBaseColor);
+            DrawRow(builder, 2, vramLoad, VramBaseColor);
+            DrawRow(builder, 3, ramLoad, RamBaseColor);
+        }
+
+        private double GetCpuLoadPercent(LhmDataService service)
+        {
+            var sensor = service.GetSensor(CpuLoadSensorId);
+            return sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0;
+        }
+
+        private double GetGpuLoadPercent(LhmDataService service)
+        {
+            var sensor = service.GetSensor(GpuLoadSensorId);
+            return sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0;
+        }
+
+        private double GetVramPercent(LhmDataService service)
+        {
+            var used = service.GetSensor(GpuMemUsedSensorId);
+            var total = service.GetSensor(GpuMemTotalSensorId);
+            if (used == null || total == null) return 0;
+            var usedMB = LhmDataService.ParseValue(used.Value);
+            var totalMB = LhmDataService.ParseValue(total.Value);
+            return totalMB > 0 ? (usedMB / totalMB) * 100 : 0;
+        }
+
+        private double GetRamLoadPercent(LhmDataService service)
+        {
+            var sensor = service.GetSensor(RamLoadSensorId);
+            return sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0;
+        }
+
+        private void DrawRow(BitmapBuilder builder, int rowIndex, double percent, BitmapColor baseColor)
+        {
+            const int padX = 6;
+            const int gap = 3;
+            var blockAreaTop = 20;
+            var blockAreaBottom = builder.Height - 4;
+
+            var areaWidth = builder.Width - (padX * 2);
+            var areaHeight = blockAreaBottom - blockAreaTop;
+
+            var blockWidth = (areaWidth - (gap * (Columns - 1))) / Columns;
+            var blockHeight = (areaHeight - (gap * (RowCount - 1))) / RowCount;
+
+            var filled = (int)(percent / 20.0);
+            filled = Math.Max(0, Math.Min(Columns, filled));
+
+            for (var col = 0; col < Columns; col++)
+            {
+                var x = padX + col * (blockWidth + gap);
+                var y = blockAreaTop + rowIndex * (blockHeight + gap);
+
+                var color = col < filled ? FillColor : baseColor;
+                builder.FillRectangle(x, y, blockWidth, blockHeight, color);
+            }
+        }
+    }
+}
