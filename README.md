@@ -1,5 +1,7 @@
 # Loupedeck Libre Hardware Monitor Plugin
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/Weniverse)
+
 Loupedeck / Razer Stream Controller plugin that displays real-time hardware sensor data from [Libre Hardware Monitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor).
 
 <!-- Screenshot: 실제 디바이스 사진이나 플러그인 동작 스크린샷을 여기에 추가하세요 -->
