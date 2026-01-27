@@ -4,8 +4,7 @@
 
 Loupedeck / Razer Stream Controller plugin that displays real-time hardware sensor data from [Libre Hardware Monitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor).
 
-<!-- Screenshot: 실제 디바이스 사진이나 플러그인 동작 스크린샷을 여기에 추가하세요 -->
-<!-- ![Plugin Preview](docs/images/preview.png) -->
+![Plugin Preview](docs/images/preview.png)
 
 ## Features
 
