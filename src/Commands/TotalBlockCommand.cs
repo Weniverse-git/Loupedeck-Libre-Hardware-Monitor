@@ -21,9 +21,9 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const int Columns = 5;
         private const int RowCount = 4;
 
-        private static readonly BitmapColor CpuBaseColor = new BitmapColor(0, 200, 80);
+        private static readonly BitmapColor CpuBaseColor = new BitmapColor(150, 150, 150);
         private static readonly BitmapColor GpuBaseColor = new BitmapColor(60, 120, 255);
-        private static readonly BitmapColor VramBaseColor = new BitmapColor(100, 180, 255);
+        private static readonly BitmapColor VramBaseColor = new BitmapColor(180, 100, 255);
         private static readonly BitmapColor RamBaseColor = new BitmapColor(200, 170, 0);
         private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
 
@@ -94,12 +94,30 @@ namespace Loupedeck.LLHMPlugin.Commands
             var filled = (int)(percent / 20.0);
             filled = Math.Max(0, Math.Min(Columns, filled));
 
+            var bg = DisplayHelper.BackgroundColor;
+
             for (var col = 0; col < Columns; col++)
             {
                 var x = padX + col * (blockWidth + gap);
                 var y = blockAreaTop + rowIndex * (blockHeight + gap);
 
-                var color = col < filled ? FillColor : baseColor;
+                BitmapColor color;
+                if (col < filled)
+                {
+                    // 채워진 블록: 선명한 색상
+                    color = baseColor;
+                }
+                else
+                {
+                    // 빈 블록: 희미한 색상 (30% opacity)
+                    const double opacity = 0.3;
+                    color = new BitmapColor(
+                        (byte)(baseColor.R * opacity + bg.R * (1 - opacity)),
+                        (byte)(baseColor.G * opacity + bg.G * (1 - opacity)),
+                        (byte)(baseColor.B * opacity + bg.B * (1 - opacity))
+                    );
+                }
+
                 builder.FillRectangle(x, y, blockWidth, blockHeight, color);
             }
         }
