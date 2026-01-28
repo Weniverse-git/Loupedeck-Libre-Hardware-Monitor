@@ -1,4 +1,4 @@
-namespace Loupedeck.LHMMonitorPlugin.Helpers
+namespace Loupedeck.LLHMPlugin.Helpers
 {
     using System;
     using Loupedeck;

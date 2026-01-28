@@ -1,9 +1,9 @@
-namespace Loupedeck.LHMMonitorPlugin.Commands
+namespace Loupedeck.LLHMPlugin.Commands
 {
     using System;
     using Loupedeck;
-    using Loupedeck.LHMMonitorPlugin.Helpers;
-    using Loupedeck.LHMMonitorPlugin.Services;
+    using Loupedeck.LLHMPlugin.Helpers;
+    using Loupedeck.LLHMPlugin.Services;
 
     /// <summary>
     /// CPU/GPU/VRAM/RAM 4줄 통합 블럭 그래프.

@@ -1,8 +1,8 @@
-namespace Loupedeck.LHMMonitorPlugin.Commands
+namespace Loupedeck.LLHMPlugin.Commands
 {
     using Loupedeck;
-    using Loupedeck.LHMMonitorPlugin.Helpers;
-    using Loupedeck.LHMMonitorPlugin.Services;
+    using Loupedeck.LLHMPlugin.Helpers;
+    using Loupedeck.LLHMPlugin.Services;
 
     /// <summary>
     /// CPU Total Power(W)를 터치 버튼에 표시합니다.

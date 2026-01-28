@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <AssemblyName>LHMMonitorPlugin</AssemblyName>
-    <RootNamespace>Loupedeck.LHMMonitorPlugin</RootNamespace>
+    <AssemblyName>LLHMPlugin</AssemblyName>
+    <RootNamespace>Loupedeck.LLHMPlugin</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <PlatformTarget>x64</PlatformTarget>
@@ -12,7 +12,7 @@
 
   <!-- 플러그인 배포 경로 (Logi Plugin Service) -->
   <PropertyGroup>
-    <PluginDir>$(LocalAppData)\Logi\LogiPluginService\Plugins\LHMMonitor</PluginDir>
+    <PluginDir>$(LocalAppData)\Logi\LogiPluginService\Plugins\LLHM</PluginDir>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,12 +30,12 @@
   <!-- 빌드 후 플러그인 폴더에 자동 배포 (.NET 8 구조: win/ 하위) -->
   <Target Name="DeployPlugin" AfterTargets="Build">
     <!-- DLL을 win/ 하위 폴더에 복사 -->
-    <Copy SourceFiles="$(OutputPath)LHMMonitorPlugin.dll"
+    <Copy SourceFiles="$(OutputPath)LLHMPlugin.dll"
           DestinationFolder="$(PluginDir)\win" />
     <!-- deps.json을 win/ 하위 폴더에 복사 -->
-    <Copy SourceFiles="$(OutputPath)LHMMonitorPlugin.deps.json"
+    <Copy SourceFiles="$(OutputPath)LLHMPlugin.deps.json"
           DestinationFolder="$(PluginDir)\win"
-          Condition="Exists('$(OutputPath)LHMMonitorPlugin.deps.json')" />
+          Condition="Exists('$(OutputPath)LLHMPlugin.deps.json')" />
     <!-- metadata 폴더 복사 -->
     <Copy SourceFiles="..\metadata\LoupedeckPackage.yaml"
           DestinationFolder="$(PluginDir)\metadata" />

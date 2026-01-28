@@ -1,4 +1,4 @@
-namespace Loupedeck.LHMMonitorPlugin.Services
+namespace Loupedeck.LLHMPlugin.Services
 {
     using System;
     using System.Collections.Generic;

@@ -98,9 +98,9 @@ Text View and Gauge View share the same per-component thresholds.
 ## Installation
 
 0. Download `Libre Hardware Monitor` and run as administrator
-1. Download `LHMMonitorPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
+1. Download `LLHMPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
 2. Double-click the downloaded file
-3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LHMMonitorPlugin.lplug4`
+3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
 4. Show plugin Hardware Monitor
 5. Find actions under the **Hardware Monitor** category
 6. Drag lists as you want
@@ -130,13 +130,13 @@ git clone https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor.git
 cd Loupedeck-Libre-Hardware-Monitor
 
 # Build
-dotnet build src/LHMMonitorPlugin.csproj -c Release
+dotnet build src/LLHMPlugin.csproj -c Release
 
 # Package .lplug4
 powershell -ExecutionPolicy Bypass -File build-lplug4.ps1
 ```
 
-Output: `release/LHMMonitorPlugin.lplug4`
+Output: `release/LLHMPlugin.lplug4`
 
 <br>
 

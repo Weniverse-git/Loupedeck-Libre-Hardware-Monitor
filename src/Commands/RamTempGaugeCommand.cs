@@ -1,9 +1,9 @@
-namespace Loupedeck.LHMMonitorPlugin.Commands
+namespace Loupedeck.LLHMPlugin.Commands
 {
     using System;
     using Loupedeck;
-    using Loupedeck.LHMMonitorPlugin.Helpers;
-    using Loupedeck.LHMMonitorPlugin.Services;
+    using Loupedeck.LLHMPlugin.Helpers;
+    using Loupedeck.LLHMPlugin.Services;
 
     /// <summary>
     /// RAM (DIMM #3) 온도를 아치형 게이지로 표시합니다.

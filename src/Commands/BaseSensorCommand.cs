@@ -1,10 +1,10 @@
-namespace Loupedeck.LHMMonitorPlugin.Commands
+namespace Loupedeck.LLHMPlugin.Commands
 {
     using System;
     using Loupedeck;
-    using Loupedeck.LHMMonitorPlugin.Helpers;
-    using Loupedeck.LHMMonitorPlugin.Services;
-    using MonitorPlugin = Loupedeck.LHMMonitorPlugin.LHMMonitorPlugin;
+    using Loupedeck.LLHMPlugin.Helpers;
+    using Loupedeck.LLHMPlugin.Services;
+    using MonitorPlugin = Loupedeck.LLHMPlugin.LLHMPlugin;
 
     /// <summary>
     /// 모든 센서 표시 Command의 공통 베이스 클래스.

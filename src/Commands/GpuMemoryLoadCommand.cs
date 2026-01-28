@@ -1,8 +1,8 @@
-namespace Loupedeck.LHMMonitorPlugin.Commands
+namespace Loupedeck.LLHMPlugin.Commands
 {
     using Loupedeck;
-    using Loupedeck.LHMMonitorPlugin.Helpers;
-    using Loupedeck.LHMMonitorPlugin.Services;
+    using Loupedeck.LLHMPlugin.Helpers;
+    using Loupedeck.LLHMPlugin.Services;
 
     public class GpuMemoryLoadCommand : BaseSensorCommand
     {

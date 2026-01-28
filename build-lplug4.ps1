@@ -1,4 +1,4 @@
-# LHMMonitorPlugin .lplug4 패키지 빌드 스크립트
+# LLHMPlugin .lplug4 패키지 빌드 스크립트
 # 사용법: powershell -ExecutionPolicy Bypass -File build-lplug4.ps1
 
 $ErrorActionPreference = "Stop"
@@ -8,7 +8,7 @@ $srcDir = Join-Path $projectDir "src"
 $metadataDir = Join-Path $projectDir "metadata"
 $outputDir = Join-Path $projectDir "release"
 
-Write-Host "=== LHMMonitorPlugin .lplug4 Builder ===" -ForegroundColor Green
+Write-Host "=== LLHMPlugin .lplug4 Builder ===" -ForegroundColor Green
 
 # 1. Release 빌드
 Write-Host "`n[1/3] Building Release..." -ForegroundColor Cyan
@@ -30,11 +30,11 @@ New-Item -ItemType Directory -Path (Join-Path $stagingDir "metadata") -Force | O
 New-Item -ItemType Directory -Path (Join-Path $stagingDir "win") -Force | Out-Null
 
 # DLL을 win/ 하위 폴더에 복사
-$dllPath = Join-Path $srcDir "bin\Release\LHMMonitorPlugin.dll"
+$dllPath = Join-Path $srcDir "bin\Release\LLHMPlugin.dll"
 Copy-Item $dllPath (Join-Path $stagingDir "win")
 
 # deps.json을 win/ 하위 폴더에 복사
-$depsPath = Join-Path $srcDir "bin\Release\LHMMonitorPlugin.deps.json"
+$depsPath = Join-Path $srcDir "bin\Release\LLHMPlugin.deps.json"
 if (Test-Path $depsPath) {
     Copy-Item $depsPath (Join-Path $stagingDir "win")
 }
@@ -55,8 +55,8 @@ if (Test-Path $iconPath) {
 
 # 3. ZIP → .lplug4
 Write-Host "`n[3/3] Creating .lplug4 package..." -ForegroundColor Cyan
-$zipPath = Join-Path $outputDir "LHMMonitorPlugin.zip"
-$lplug4Path = Join-Path $outputDir "LHMMonitorPlugin.lplug4"
+$zipPath = Join-Path $outputDir "LLHMPlugin.zip"
+$lplug4Path = Join-Path $outputDir "LLHMPlugin.lplug4"
 if (Test-Path $zipPath) { Remove-Item $zipPath }
 if (Test-Path $lplug4Path) { Remove-Item $lplug4Path }
 Compress-Archive -Path (Join-Path $stagingDir "*") -DestinationPath $zipPath -Force
