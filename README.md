@@ -1,6 +1,6 @@
 # Loupedeck Libre Hardware Monitor Plugin
 
-<a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
+<br>
 
 **Loupedeck / Razer Stream Controller plugin that displays real-time hardware sensor data** from [Libre Hardware Monitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor).
 
@@ -141,4 +141,9 @@ This plugin reads sensors from LHM's HTTP API. Default sensor paths are configur
 
 [MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2026 Weniverse
 
+<br>
+
+## Comment
+
+If you find my project useful to you, please consider giving a star ⭐ and
 <a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
