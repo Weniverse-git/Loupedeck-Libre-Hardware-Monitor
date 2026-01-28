@@ -95,22 +95,28 @@ Text View and Gauge View share the same per-component thresholds.
 
 <br>
 
-### Enabling LHM HTTP Server
+## Installation
 
+0. Download `Libre Hardware Monitor` and run as administrator
+1. Download `LHMMonitorPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
+2. Double-click the downloaded file
+3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LHMMonitorPlugin.lplug4`
+4. Show plugin Hardware Monitor
+5. Find actions under the **Hardware Monitor** category
+6. Drag lists as you want
+
+![Installation](https://github.com/user-attachments/assets/27bd3657-cf12-4d61-812a-40038723ca31)
+
+<br>
+
+### Troubleshooting
+
+**Enabling LHM HTTP Server**
 1. Open Libre Hardware Monitor
 2. Go to **Options > Remote Web Server**
 3. Set port to **8085**
 4. The administrator mode and autostart of LHM is broken somewhere. The most reliable method is to register LHM Application on the Loupedeck, launch it with a button, and then approve the administrator mode to turn it on.
 ![Libre Hardware Monitor Settings](https://github.com/user-attachments/assets/825bfc6a-638d-42b3-b448-1c08955a0f8d)
-
-<br>
-
-## Installation
-
-1. Download `LHMMonitorPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
-2. Double-click the downloaded file
-3. Restart Loupedeck
-4. Find actions under the **Hardware Monitor** category
 
 <br>
 
