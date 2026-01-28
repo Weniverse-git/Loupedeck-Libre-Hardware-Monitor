@@ -140,3 +140,5 @@ This plugin reads sensors from LHM's HTTP API. Default sensor paths are configur
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2026 Weniverse
+
+<a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
