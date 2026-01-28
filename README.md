@@ -122,26 +122,6 @@ Text View and Gauge View share the same per-component thresholds.
 
 <br>
 
-## Build from Source
-
-```bash
-# Prerequisites: .NET 8 SDK
-
-# Clone
-git clone https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor.git
-cd Loupedeck-Libre-Hardware-Monitor
-
-# Build
-dotnet build src/LLHMPlugin.csproj -c Release
-
-# Package .lplug4
-powershell -ExecutionPolicy Bypass -File build-lplug4.ps1
-```
-
-Output: `release/LLHMPlugin.lplug4`
-
-<br>
-
 ## Sensor Configuration
 
 This plugin reads sensors from LHM's HTTP API. Default sensor paths are configured for:
