@@ -115,28 +115,10 @@ Text View and Gauge View share the same per-component thresholds.
 1. Open Libre Hardware Monitor
 2. Go to **Options > Remote Web Server**
 3. Set port to **8085**
-4. The administrator mode and autostart of LHM is broken somewhere. The most reliable method is to register LHM Application on the Loupedeck, launch it with a button, and then approve the administrator mode to turn it on.
+
 ![Libre Hardware Monitor Settings](https://github.com/user-attachments/assets/825bfc6a-638d-42b3-b448-1c08955a0f8d)
 
-<br>
-
-## Build from Source
-
-```bash
-# Prerequisites: .NET 8 SDK
-
-# Clone
-git clone https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor.git
-cd Loupedeck-Libre-Hardware-Monitor
-
-# Build
-dotnet build src/LLHMPlugin.csproj -c Release
-
-# Package .lplug4
-powershell -ExecutionPolicy Bypass -File build-lplug4.ps1
-```
-
-Output: `release/LLHMPlugin.lplug4`
+**The administrator mode and autostart of LHM is broken somewhere.** The most reliable method is to register LHM Application on the Loupedeck, launch it with a button, and then approve the administrator mode to turn it on.
 
 <br>
 
@@ -158,3 +140,5 @@ This plugin reads sensors from LHM's HTTP API. Default sensor paths are configur
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2026 Weniverse
+
+<a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
