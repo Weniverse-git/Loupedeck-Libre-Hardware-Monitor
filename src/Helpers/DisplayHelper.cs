@@ -9,14 +9,14 @@ namespace Loupedeck.LHMMonitorPlugin.Helpers
     public static class DisplayHelper
     {
         /// <summary>
-        /// 온도에 따라 색상을 반환합니다.
-        /// 녹색(~60°C) → 노랑(60~80°C) → 빨강(80°C~)
+        /// 온도에 따라 색상을 반환합니다 (컴포넌트별 기준값 지정).
+        /// 녹색 → 노랑(yellowThreshold 이상) → 빨강(redThreshold 이상)
         /// </summary>
-        public static BitmapColor GetTemperatureColor(double temperature)
+        public static BitmapColor GetTemperatureColor(double temperature, double yellowThreshold, double redThreshold)
         {
-            if (temperature >= 80)
+            if (temperature >= redThreshold)
                 return new BitmapColor(255, 60, 60);    // 빨강
-            if (temperature >= 60)
+            if (temperature >= yellowThreshold)
                 return new BitmapColor(255, 180, 0);    // 주황/노랑
             return new BitmapColor(0, 200, 80);         // 녹색
         }

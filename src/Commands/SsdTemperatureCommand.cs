@@ -25,7 +25,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             }
 
             var temp = LhmDataService.ParseValue(sensor.Value);
-            var color = DisplayHelper.GetTemperatureColor(temp);
+            var color = DisplayHelper.GetTemperatureColor(temp, 60, 75);
             DrawValue(builder, $"{temp:F0}\u00b0C", color);
         }
     }
@@ -51,7 +51,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             }
 
             var temp = LhmDataService.ParseValue(sensor.Value);
-            var color = DisplayHelper.GetTemperatureColor(temp);
+            var color = DisplayHelper.GetTemperatureColor(temp, 60, 75);
             DrawValue(builder, $"{temp:F0}\u00b0C", color);
         }
     }
@@ -77,7 +77,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             }
 
             var temp = LhmDataService.ParseValue(sensor.Value);
-            var color = DisplayHelper.GetTemperatureColor(temp);
+            var color = DisplayHelper.GetTemperatureColor(temp, 60, 75);
             DrawValue(builder, $"{temp:F0}\u00b0C", color);
         }
     }
@@ -103,7 +103,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             }
 
             var temp = LhmDataService.ParseValue(sensor.Value);
-            var color = DisplayHelper.GetTemperatureColor(temp);
+            var color = DisplayHelper.GetTemperatureColor(temp, 60, 75);
             DrawValue(builder, $"{temp:F0}\u00b0C", color);
         }
     }
@@ -129,7 +129,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             }
 
             var temp = LhmDataService.ParseValue(sensor.Value);
-            var color = DisplayHelper.GetTemperatureColor(temp);
+            var color = DisplayHelper.GetTemperatureColor(temp, 60, 75);
             DrawValue(builder, $"{temp:F0}\u00b0C", color);
         }
     }

@@ -96,7 +96,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
                             if (progress <= ratio)
                             {
                                 var t = MinTemp + progress * (MaxTemp - MinTemp);
-                                c = t >= 76 ? RedColor
+                                c = t >= 75 ? RedColor
                                   : t >= 60 ? YellowColor
                                   : GreenColor;
                             }
@@ -120,7 +120,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
                 }
             }
 
-            var valueColor = temp >= 76 ? RedColor
+            var valueColor = temp >= 75 ? RedColor
                            : temp >= 60 ? YellowColor
                            : GreenColor;
             builder.DrawText($"{temp:F0}\u00b0C", 0, (int)(cy - 16), w, 18,

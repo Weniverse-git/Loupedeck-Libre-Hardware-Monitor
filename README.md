@@ -69,19 +69,13 @@
 
 ### Temperature
 
-**Text View** (shared thresholds for all components)
-
-| Green | Yellow | Red |
-|-------|--------|-----|
-| < 60°C | 60–79°C | ≥ 80°C |
-
-**Gauge View** (per-component thresholds)
+Text View and Gauge View share the same per-component thresholds.
 
 | Component | Green | Yellow | Red |
 |-----------|-------|--------|-----|
 | CPU | < 70°C | 70–89°C | ≥ 90°C |
 | GPU | < 60°C | 60–74°C | ≥ 75°C |
-| NVMe | < 60°C | 60–75°C | ≥ 76°C |
+| NVMe | < 60°C | 60–74°C | ≥ 75°C |
 | RAM | < 45°C | 45–54°C | ≥ 55°C |
 
 ### Power
@@ -90,7 +84,7 @@
 |-----------|-------|--------|-----|
 | CPU Power | < 90W | 90–139W | ≥ 140W |
 | GPU Power | < 300W | 300–499W | ≥ 500W |
-| CPGPU Power | < 440W | 440–539W | ≥ 540W |
+| CPGPU Power | < 390W | 390–639W | ≥ 640W |
 
 <br>
 

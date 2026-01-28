@@ -6,7 +6,7 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
 
     /// <summary>
     /// CPU + GPU 합산 Power(W)를 터치 버튼에 표시합니다.
-    /// 440W 이상 주황, 540W 이상 빨강.
+    /// 390W 이상 주황, 640W 이상 빨강.
     /// </summary>
     public class TotalPowerCommand : BaseSensorCommand
     {
@@ -36,9 +36,9 @@ namespace Loupedeck.LHMMonitorPlugin.Commands
             var totalWatts = cpuWatts + gpuWatts;
 
             BitmapColor color;
-            if (totalWatts >= 540)
+            if (totalWatts >= 640)
                 color = new BitmapColor(255, 60, 60);
-            else if (totalWatts >= 440)
+            else if (totalWatts >= 390)
                 color = new BitmapColor(255, 180, 0);
             else
                 color = new BitmapColor(0, 200, 80);
