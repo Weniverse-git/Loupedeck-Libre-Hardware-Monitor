@@ -12,7 +12,7 @@
 
 <br>
 
-⚠️This is for personal use, but I'm making it public because I think many people are looking for this functionality. I cannot guarantee ongoing maintenance.
+⚠️I'm making it public because I think many people are looking for this functionality. But basically, it is for personal use. I cannot guarantee ongoing maintenance.
 
 <br>
 
