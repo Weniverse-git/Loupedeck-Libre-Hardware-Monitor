@@ -124,16 +124,18 @@ Text View and Gauge View share the same per-component thresholds.
 
 ## Sensor Configuration
 
-This plugin reads sensors from LHM's HTTP API. Default sensor paths are configured for:
+This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
 
-| Component | Sensor Path |
-|-----------|-------------|
-| CPU | `/amdcpu/0/` |
-| GPU | `/gpu-nvidia/0/` |
-| RAM | `/ram/` |
+### Supported Hardware (v1.2.0+)
+
+| Component | Supported Vendors |
+|-----------|-------------------|
+| CPU | AMD, Intel |
+| GPU | NVIDIA, AMD (Radeon), Intel |
+| RAM | All (fixed path) |
 | NVMe | `/nvme/0/` ~ `/nvme/4/` |
 
-> **Note:** Sensor paths may differ depending on your hardware. Check `http://localhost:8085/data.json` for your system's sensor IDs.
+> **Note:** The plugin auto-detects your hardware at startup. No manual configuration needed. Check `http://localhost:8085/data.json` to verify LHM is running.
 
 <br>
 
