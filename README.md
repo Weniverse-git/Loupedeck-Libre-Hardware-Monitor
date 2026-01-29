@@ -117,6 +117,23 @@ Text View and Gauge View share the same per-component thresholds.
 
 <br>
 
+### QUICK Tip - Libre Hardware Monitor shutdown occationally
+- This is a known bug in LHM v0.9.5 (https://github.com/Blacktempel/DiskInfoToolkit/issues/6). It occurs when handling unpartitioned driver or drives with bad sectors.
+- LHM crashes repeatedly with an error like this in Windows Event Viewer: <br>
+  System.NullReferenceException <br>
+     at DiskInfoToolkit.Storage.IdentifyStorageController() <br>
+     at DiskInfoToolkit.StorageManager.HandleUnpartitionedDrive() <br>
+     at DiskInfoToolkit.StorageManager.DevicesChangedListener() <br>
+
+**Solution:** 
+1. Go to the https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/actions/runs/21396930766 [Github Login required]
+2. Download the "LibreHardwareMonitor" in artifacts section (GitHub login required)
+3. Close LHM completely
+4. Extract and overwrite files in Ordinary LHM path
+5. Restart LHM
+
+<br>
+
 ## Sensor Configuration
 
 This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
