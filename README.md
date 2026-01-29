@@ -13,7 +13,7 @@
 
 ![Plugin Preview](docs/images/preview.png)
 
-*Currently tested on Nvidia GPUs only*
+*Currently tested on AMD CPUs / Nvidia GPUs only*
 ### 29 Dynamic Actions across 3 View Types
 
 **Text View** — sensor value displayed as text
