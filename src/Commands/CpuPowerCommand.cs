@@ -6,12 +6,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
     /// <summary>
     /// CPU Total Power(W)를 터치 버튼에 표시합니다.
-    /// 90W 이상 주황, 140W 이상 빨강.
+    /// 동적 탐지로 AMD, Intel CPU 지원.
     /// </summary>
     public class CpuPowerCommand : BaseSensorCommand
     {
-        private const string SensorId = "/amdcpu/0/power/0";
-
         public CpuPowerCommand()
             : base("CPU Power", "CPU Package Power", "Hardware Monitor")
         {
@@ -21,7 +19,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuPowerPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

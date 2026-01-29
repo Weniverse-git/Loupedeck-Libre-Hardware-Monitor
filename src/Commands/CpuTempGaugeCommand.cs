@@ -8,11 +8,10 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// CPU 온도를 아치형 게이지로 표시합니다.
     /// 게이지 범위 20~100°C. 70°C까지 초록, 90°C까지 노란색, 이상 빨간색.
-    /// 미달 영역은 회색.
+    /// 동적 탐지로 AMD, Intel CPU 지원.
     /// </summary>
     public class CpuTempGaugeCommand : BaseSensorCommand
     {
-        private const string SensorId = "/amdcpu/0/temperature/2";
         private const double MinTemp = 20;
         private const double MaxTemp = 100;
 
@@ -30,7 +29,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuTemperaturePath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

@@ -8,12 +8,10 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// GPU VRAM 사용률을 5x4 블럭 그래프(총 20개)로 표시합니다.
     /// 5%마다 블럭 1개가 빨강으로 채워집니다.
-    /// 초기 색상: 파란색. 라벨 상단, 블럭 하단.
+    /// 동적 탐지로 NVIDIA, AMD(Radeon), Intel GPU 지원.
     /// </summary>
     public class GpuMemoryLoadBlockCommand : BaseSensorCommand
     {
-        private const string UsedSensorId = "/gpu-nvidia/0/smalldata/1";
-        private const string TotalSensorId = "/gpu-nvidia/0/smalldata/2";
         private const int Columns = 5;
         private const int Rows = 4;
         private const int TotalBlocks = Columns * Rows;
@@ -30,8 +28,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var usedSensor = service.GetSensor(UsedSensorId);
-            var totalSensor = service.GetSensor(TotalSensorId);
+            var usedPath = HardwareRegistry.Instance?.GetGpuVramUsedPath();
+            var totalPath = HardwareRegistry.Instance?.GetGpuVramTotalPath();
+            var usedSensor = usedPath != null ? service.GetSensor(usedPath) : null;
+            var totalSensor = totalPath != null ? service.GetSensor(totalPath) : null;
 
             if (usedSensor == null || totalSensor == null)
             {

@@ -8,11 +8,10 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// GPU Core 사용률을 5x4 블럭 그래프(총 20개)로 표시합니다.
     /// 5%마다 블럭 1개가 빨강으로 채워집니다.
-    /// 초기 색상: 파란색. 라벨 상단, 블럭 하단.
+    /// 동적 탐지로 NVIDIA, AMD(Radeon), Intel GPU 지원.
     /// </summary>
     public class GpuLoadBlockCommand : BaseSensorCommand
     {
-        private const string SensorId = "/gpu-nvidia/0/load/0";
         private const int Columns = 5;
         private const int Rows = 4;
         private const int TotalBlocks = Columns * Rows;
@@ -29,7 +28,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetGpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

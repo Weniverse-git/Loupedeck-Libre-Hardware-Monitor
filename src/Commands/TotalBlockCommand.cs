@@ -8,16 +8,11 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// CPU/GPU/VRAM/RAM 4줄 통합 블럭 그래프.
     /// 각 줄 5블럭, 블럭 하나당 20%.
-    /// 위에서부터: CPU(초록), GPU(파랑), VRAM(연파랑), RAM(노랑).
+    /// 동적 탐지로 AMD/Intel CPU, NVIDIA/AMD/Intel GPU 지원.
     /// </summary>
     public class TotalBlockCommand : BaseSensorCommand
     {
-        private const string CpuLoadSensorId = "/amdcpu/0/load/0";
-        private const string GpuLoadSensorId = "/gpu-nvidia/0/load/0";
-        private const string GpuMemUsedSensorId = "/gpu-nvidia/0/smalldata/1";
-        private const string GpuMemTotalSensorId = "/gpu-nvidia/0/smalldata/2";
         private const string RamLoadSensorId = "/ram/load/0";
-
         private const int Columns = 5;
         private const int RowCount = 4;
 
@@ -52,20 +47,24 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         private double GetCpuLoadPercent(LhmDataService service)
         {
-            var sensor = service.GetSensor(CpuLoadSensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             return sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0;
         }
 
         private double GetGpuLoadPercent(LhmDataService service)
         {
-            var sensor = service.GetSensor(GpuLoadSensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetGpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             return sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0;
         }
 
         private double GetVramPercent(LhmDataService service)
         {
-            var used = service.GetSensor(GpuMemUsedSensorId);
-            var total = service.GetSensor(GpuMemTotalSensorId);
+            var usedPath = HardwareRegistry.Instance?.GetGpuVramUsedPath();
+            var totalPath = HardwareRegistry.Instance?.GetGpuVramTotalPath();
+            var used = usedPath != null ? service.GetSensor(usedPath) : null;
+            var total = totalPath != null ? service.GetSensor(totalPath) : null;
             if (used == null || total == null) return 0;
             var usedMB = LhmDataService.ParseValue(used.Value);
             var totalMB = LhmDataService.ParseValue(total.Value);

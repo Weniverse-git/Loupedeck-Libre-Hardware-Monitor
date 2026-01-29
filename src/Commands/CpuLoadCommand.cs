@@ -6,12 +6,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
     /// <summary>
     /// CPU 사용률을 터치 버튼에 표시합니다.
-    /// SensorId: /amdcpu/0/load/0 (CPU Total %)
+    /// 동적 탐지로 AMD, Intel CPU 지원.
     /// </summary>
     public class CpuLoadCommand : BaseSensorCommand
     {
-        private const string SensorId = "/amdcpu/0/load/0";
-
         public CpuLoadCommand()
             : base("CPU Load", "CPU Total Usage", "Hardware Monitor")
         {
@@ -21,7 +19,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

@@ -8,11 +8,10 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// GPU 코어 온도를 아치형 게이지로 표시합니다.
     /// 게이지 범위 20~100°C. 60°C까지 초록, 75°C까지 노란색, 이상 빨간색.
-    /// 미달 영역은 회색.
+    /// 동적 탐지로 NVIDIA, AMD(Radeon), Intel GPU 지원.
     /// </summary>
     public class GpuTempGaugeCommand : BaseSensorCommand
     {
-        private const string SensorId = "/gpu-nvidia/0/temperature/0";
         private const double MinTemp = 20;
         private const double MaxTemp = 100;
 
@@ -30,7 +29,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetGpuTemperaturePath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

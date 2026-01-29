@@ -8,11 +8,10 @@ namespace Loupedeck.LLHMPlugin.Commands
     /// <summary>
     /// CPU 사용률을 5x4 블럭 그래프(총 20개)로 표시합니다.
     /// 5%마다 블럭 1개가 빨강으로 채워집니다.
-    /// 라벨 상단, 블럭 하단. 아래 왼쪽부터 채웁니다.
+    /// 동적 탐지로 AMD, Intel CPU 지원.
     /// </summary>
     public class CpuLoadBlockCommand : BaseSensorCommand
     {
-        private const string SensorId = "/amdcpu/0/load/0";
         private const int Columns = 5;
         private const int Rows = 4;
         private const int TotalBlocks = Columns * Rows;
@@ -29,7 +28,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

@@ -12,20 +12,38 @@ namespace Loupedeck.LLHMPlugin
         /// <summary>LHM 데이터 서비스 (싱글톤). 모든 Command에서 공유.</summary>
         internal static LhmDataService DataService { get; private set; }
 
+        private bool _hardwareDetected = false;
+
         public override bool HasNoApplication => true;
         public override bool UsesApplicationApiOnly => true;
 
         public override void Load()
         {
             DataService = new LhmDataService("http://localhost:8085/data.json");
+            DataService.DataUpdated += OnDataUpdated;
             DataService.Start();
+        }
+
+        private void OnDataUpdated()
+        {
+            // 첫 데이터 수신 시 하드웨어 탐지 (1회만)
+            if (!_hardwareDetected && DataService.IsConnected)
+            {
+                HardwareRegistry.Initialize(DataService);
+                _hardwareDetected = true;
+            }
         }
 
         public override void Unload()
         {
-            DataService?.Stop();
-            DataService?.Dispose();
-            DataService = null;
+            if (DataService != null)
+            {
+                DataService.DataUpdated -= OnDataUpdated;
+                DataService.Stop();
+                DataService.Dispose();
+                DataService = null;
+            }
+            _hardwareDetected = false;
         }
     }
 }

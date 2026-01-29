@@ -6,12 +6,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
     /// <summary>
     /// CPU 온도를 터치 버튼에 표시합니다.
-    /// SensorId: /amdcpu/0/temperature/2 (Core Tctl/Tdie)
+    /// 동적 탐지로 AMD, Intel CPU 지원.
     /// </summary>
     public class CpuTemperatureCommand : BaseSensorCommand
     {
-        private const string SensorId = "/amdcpu/0/temperature/2";
-
         public CpuTemperatureCommand()
             : base("CPU Temp", "CPU Core Temperature", "Hardware Monitor")
         {
@@ -21,7 +19,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetCpuTemperaturePath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

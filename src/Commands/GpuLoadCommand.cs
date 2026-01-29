@@ -6,12 +6,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
     /// <summary>
     /// GPU 사용률을 터치 버튼에 표시합니다.
-    /// SensorId: /gpu-nvidia/0/load/0 (GPU Core %)
+    /// 동적 탐지로 NVIDIA, AMD(Radeon), Intel GPU 지원.
     /// </summary>
     public class GpuLoadCommand : BaseSensorCommand
     {
-        private const string SensorId = "/gpu-nvidia/0/load/0";
-
         public GpuLoadCommand()
             : base("GPU Load", "GPU Core Usage", "Hardware Monitor")
         {
@@ -21,7 +19,8 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var sensor = service.GetSensor(SensorId);
+            var sensorPath = HardwareRegistry.Instance?.GetGpuLoadPath();
+            var sensor = sensorPath != null ? service.GetSensor(sensorPath) : null;
             if (sensor == null)
             {
                 DrawValue(builder, "N/A", DisplayHelper.OfflineColor);

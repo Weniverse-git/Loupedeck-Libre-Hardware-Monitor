@@ -4,11 +4,12 @@ namespace Loupedeck.LLHMPlugin.Commands
     using Loupedeck.LLHMPlugin.Helpers;
     using Loupedeck.LLHMPlugin.Services;
 
+    /// <summary>
+    /// GPU VRAM 사용률(%)을 터치 버튼에 표시합니다.
+    /// 동적 탐지로 NVIDIA, AMD(Radeon), Intel GPU 지원.
+    /// </summary>
     public class GpuMemoryLoadCommand : BaseSensorCommand
     {
-        private const string UsedSensorId = "/gpu-nvidia/0/smalldata/1";
-        private const string TotalSensorId = "/gpu-nvidia/0/smalldata/2";
-
         public GpuMemoryLoadCommand()
             : base("GPU VRAM %", "GPU Memory Usage Percent", "Hardware Monitor")
         {
@@ -18,8 +19,10 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         protected override void DrawSensorData(BitmapBuilder builder, LhmDataService service)
         {
-            var usedSensor = service.GetSensor(UsedSensorId);
-            var totalSensor = service.GetSensor(TotalSensorId);
+            var usedPath = HardwareRegistry.Instance?.GetGpuVramUsedPath();
+            var totalPath = HardwareRegistry.Instance?.GetGpuVramTotalPath();
+            var usedSensor = usedPath != null ? service.GetSensor(usedPath) : null;
+            var totalSensor = totalPath != null ? service.GetSensor(totalPath) : null;
 
             if (usedSensor == null || totalSensor == null)
             {
