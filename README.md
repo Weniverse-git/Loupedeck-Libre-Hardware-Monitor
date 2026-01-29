@@ -1,10 +1,7 @@
 # Loupedeck Libre Hardware Monitor Plugin
+**Loupedeck / Razer Stream Controller plugin** that displays real-time hardware sensor data from [Libre Hardware Monitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor).
 
-<a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
-
-**Loupedeck / Razer Stream Controller plugin that displays real-time hardware sensor data** from [Libre Hardware Monitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor).
-
-![Plugin Preview](docs/images/preview.png)
+![Operating](https://github.com/user-attachments/assets/1dae7f00-3889-487f-b5fd-08695a2eb5ce)
 
 <br>
 
@@ -12,12 +9,11 @@
 
 <br>
 
-⚠️I'm making it public because I think many people are looking for this functionality. But basically, it is for personal use. I cannot guarantee ongoing maintenance.
-
-<br>
-
 ## Features
 
+![Plugin Preview](docs/images/preview.png)
+
+*Currently tested on AMD CPUs / Nvidia GPUs only*
 ### 29 Dynamic Actions across 3 View Types
 
 **Text View** — sensor value displayed as text
@@ -142,5 +138,13 @@ This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
 ## License
 
 [MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2026 Weniverse
+
+<br>
+
+## Comment
+
+If you find my project useful to you, please consider giving a star ⭐
+
+<br>
 
 <a href="https://buymeacoffee.com/Weniverse"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" width="200"></a>
