@@ -118,6 +118,7 @@ Text View and Gauge View share the same per-component thresholds.
 <br>
 
 ### QUICK Tip - Libre Hardware Monitor shutdown occationally
+- This typically occurs when an SD card reader has no media inserted.
 - This is a known bug in LHM v0.9.5 (https://github.com/Blacktempel/DiskInfoToolkit/issues/6). It occurs when handling unpartitioned driver or drives with bad sectors.
 - LHM crashes repeatedly with an error like this in Windows Event Viewer: <br>
   System.NullReferenceException <br>
