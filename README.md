@@ -95,11 +95,10 @@ Text View and Gauge View share the same per-component thresholds.
 
 0. Download `Libre Hardware Monitor` and run as administrator
 1. Download `LLHMPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
-2. Double-click the downloaded file
-3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
-4. Show plugin Hardware Monitor
-5. Find actions under the **Hardware Monitor** category
-6. Drag lists as you want
+2. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
+3. Show plugin Hardware Monitor
+4. Find actions under the **Hardware Monitor** category
+5. Drag lists as you want
 
 ![Installation](https://github.com/user-attachments/assets/27bd3657-cf12-4d61-812a-40038723ca31)
 
