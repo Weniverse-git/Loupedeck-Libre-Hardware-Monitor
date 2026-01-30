@@ -59,17 +59,35 @@ namespace Loupedeck.LLHMPlugin.Services
                 }
             }
 
-            // GPU 탐지
+            // GPU 탐지 - 센서가 가장 많은 GPU 선택 (dGPU 우선)
             GpuPrefix = null;
+            var bestGpuPrefix = (string)null;
+            var maxSensorCount = 0;
+
             foreach (var prefix in GpuPrefixes)
             {
                 var sensors = dataService.GetSensorsByPrefix(prefix);
-                if (sensors.Count > 0)
+                if (sensors.Count == 0)
+                    continue;
+
+                // 같은 prefix 내에서 각 GPU 디바이스별 센서 수 계산
+                var deviceSensorCounts = sensors
+                    .Select(s => ExtractDevicePrefix(s.SensorId))
+                    .Where(p => p != null)
+                    .GroupBy(p => p)
+                    .ToDictionary(g => g.Key, g => g.Count());
+
+                foreach (var kvp in deviceSensorCounts)
                 {
-                    GpuPrefix = ExtractDevicePrefix(sensors[0].SensorId);
-                    break;
+                    if (kvp.Value > maxSensorCount)
+                    {
+                        maxSensorCount = kvp.Value;
+                        bestGpuPrefix = kvp.Key;
+                    }
                 }
             }
+
+            GpuPrefix = bestGpuPrefix;
         }
 
         /// <summary>

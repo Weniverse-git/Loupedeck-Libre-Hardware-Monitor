@@ -2,7 +2,7 @@ type: plugin4
 name: LLHM
 displayName: Hardware Monitor
 description: Displays real-time hardware sensor data (CPU, GPU, RAM, SSD) from Libre Hardware Monitor on Loupedeck/Razer Stream Controller.
-version: 1.2.0
+version: 1.2.1
 
 author: Weniverse
 copyright: Copyright (c) 2025 Weniverse. All rights reserved.

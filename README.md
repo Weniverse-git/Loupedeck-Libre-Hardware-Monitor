@@ -95,10 +95,11 @@ Text View and Gauge View share the same per-component thresholds.
 
 0. Download `Libre Hardware Monitor` and run as administrator
 1. Download `LLHMPlugin.lplug4` from the [Releases](https://github.com/Weniverse-git/Loupedeck-Libre-Hardware-Monitor/releases) page
-2. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
-3. Show plugin Hardware Monitor
-4. Find actions under the **Hardware Monitor** category
-5. Drag lists as you want
+2. Double-click the downloaded file
+3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
+4. Show plugin Hardware Monitor
+5. Find actions under the **Hardware Monitor** category
+6. Drag lists as you want
 
 ![Installation](https://github.com/user-attachments/assets/27bd3657-cf12-4d61-812a-40038723ca31)
 
@@ -117,20 +118,23 @@ Text View and Gauge View share the same per-component thresholds.
 
 <br>
 
-### QUICK Tip - Libre Hardware Monitor shutdown occationally
-- This typically occurs when an SD card reader has no media inserted.
-- This is a known bug in LHM v0.9.5 (https://github.com/Blacktempel/DiskInfoToolkit/issues/6). It occurs when handling unpartitioned driver or drives with bad sectors.
-- LHM crashes repeatedly with an error like this in Windows Event Viewer: <br>
-  System.NullReferenceException <br>
-     at DiskInfoToolkit.Storage.IdentifyStorageController() <br>
-     at DiskInfoToolkit.StorageManager.HandleUnpartitionedDrive() <br>
-     at DiskInfoToolkit.StorageManager.DevicesChangedListener() <br>
+**LHM keeps crashing (NullReferenceException in DiskInfoToolkit)**
 
-**Solution:** 
-1. Go to the https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/actions/runs/21396930766 [Github Login required]
-2. Download the "LibreHardwareMonitor" in artifacts section (GitHub login required)
+If LHM crashes repeatedly with an error like this in Windows Event Viewer:
+```
+System.NullReferenceException
+   at DiskInfoToolkit.Storage.IdentifyStorageController()
+   at DiskInfoToolkit.StorageManager.HandleUnpartitionedDrive()
+   at DiskInfoToolkit.StorageManager.DevicesChangedListener()
+```
+
+This is a **known bug in LHM v0.9.5** ([DiskInfoToolkit Issue #6](https://github.com/Blacktempel/DiskInfoToolkit/issues/6)). It occurs when handling unpartitioned drives or drives with bad sectors.
+
+**Solution:** Download the latest build from [GitHub Actions](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/actions) and replace the files in your LHM installation folder:
+1. Go to the [latest successful build](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor/actions/workflows/build.yml?query=branch%3Amaster+is%3Asuccess)
+2. Download the `LibreHardwareMonitor` artifact (GitHub login required)
 3. Close LHM completely
-4. Extract and overwrite files in Ordinary LHM path
+4. Extract and overwrite files in `C:\Program Files\Libre Hardware Monitor\`
 5. Restart LHM
 
 <br>
