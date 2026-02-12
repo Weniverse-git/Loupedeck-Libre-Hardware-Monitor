@@ -160,6 +160,8 @@ This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
 
 [MIT](https://opensource.org/licenses/MIT) — Copyright (c) 2026 Weniverse
 
+Original Project is [here](https://github.com/notadoctor99/librehardwaremonitorplugin)
+
 <br>
 
 ## Comment
