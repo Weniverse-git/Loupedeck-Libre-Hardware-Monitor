@@ -21,7 +21,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor RedColor = new BitmapColor(255, 50, 50);
 
         public Nvme3TempGaugeCommand()
-            : base("NVMe #3 (Gauge)", "NVMe #3 Temp Gauge View", "Hardware Monitor")
+            : base("NVMe #3 (Gauge)", "NVMe #3 Temp Gauge View", "HW Monitor - NVMe")
         {
         }
 

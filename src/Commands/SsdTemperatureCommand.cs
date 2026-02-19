@@ -9,7 +9,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/nvme/0/temperature/0";
 
         public SsdTemp0Command()
-            : base("NVMe #0 Temp", "NVMe #0 Temperature", "Hardware Monitor")
+            : base("NVMe #0 Temp", "NVMe #0 Temperature", "HW Monitor - NVMe")
         {
         }
 
@@ -35,7 +35,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/nvme/1/temperature/0";
 
         public SsdTemp1Command()
-            : base("NVMe #1 Temp", "NVMe #1 Temperature", "Hardware Monitor")
+            : base("NVMe #1 Temp", "NVMe #1 Temperature", "HW Monitor - NVMe")
         {
         }
 
@@ -61,7 +61,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/nvme/2/temperature/0";
 
         public SsdTemp2Command()
-            : base("NVMe #2 Temp", "NVMe #2 Temperature", "Hardware Monitor")
+            : base("NVMe #2 Temp", "NVMe #2 Temperature", "HW Monitor - NVMe")
         {
         }
 
@@ -87,7 +87,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/nvme/3/temperature/0";
 
         public SsdTemp3Command()
-            : base("NVMe #3 Temp", "NVMe #3 Temperature", "Hardware Monitor")
+            : base("NVMe #3 Temp", "NVMe #3 Temperature", "HW Monitor - NVMe")
         {
         }
 
@@ -113,7 +113,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/nvme/4/temperature/0";
 
         public SsdTemp4Command()
-            : base("NVMe #4 Temp", "NVMe #4 Temperature", "Hardware Monitor")
+            : base("NVMe #4 Temp", "NVMe #4 Temperature", "HW Monitor - NVMe")
         {
         }
 

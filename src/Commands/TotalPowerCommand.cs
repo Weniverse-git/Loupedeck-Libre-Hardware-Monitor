@@ -14,7 +14,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string GpuPowerSensorId = "/gpu-nvidia/0/power/0";
 
         public TotalPowerCommand()
-            : base("CPGPU Power", "CPU + GPU Total Power", "Hardware Monitor")
+            : base("CPGPU Power", "CPU + GPU Total Power", "HW Monitor - ETC")
         {
         }
 

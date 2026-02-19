@@ -11,7 +11,7 @@ namespace Loupedeck.LLHMPlugin.Commands
     public class GpuVramCommand : BaseSensorCommand
     {
         public GpuVramCommand()
-            : base("GPU VRAM", "GPU Memory Usage", "Hardware Monitor")
+            : base("GPU VRAM", "GPU Memory Usage", "HW Monitor - GPU")
         {
         }
 

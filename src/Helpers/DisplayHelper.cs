@@ -72,5 +72,22 @@ namespace Loupedeck.LLHMPlugin.Helpers
                 return $"{valueMB / 1024:F1}GB";
             return $"{valueMB:F0}MB";
         }
+
+        /// <summary>
+        /// 네트워크 속도(KB/s)를 간결하게 표시합니다.
+        /// 예: 45 → "45K", 1200 → "1.2M", 15360 → "15M", 1048576 → "1.0G"
+        /// </summary>
+        public static string FormatNetworkSpeed(double kbPerSec)
+        {
+            if (kbPerSec < 0)
+                return "0K";
+            if (kbPerSec < 1000)
+                return $"{kbPerSec:F0}K";
+            if (kbPerSec < 10240)
+                return $"{kbPerSec / 1024:F1}M";
+            if (kbPerSec < 1048576)
+                return $"{kbPerSec / 1024:F0}M";
+            return $"{kbPerSec / 1048576:F1}G";
+        }
     }
 }

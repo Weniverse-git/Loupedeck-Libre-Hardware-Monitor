@@ -21,7 +21,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor RedColor = new BitmapColor(255, 50, 50);
 
         public RamTempGaugeCommand()
-            : base("RAM Temp (Gauge)", "RAM Temp Gauge View", "Hardware Monitor")
+            : base("RAM Temp (Gauge)", "RAM Temp Gauge View", "HW Monitor - RAM")
         {
         }
 

@@ -11,7 +11,7 @@ namespace Loupedeck.LLHMPlugin.Commands
     public class CpuPowerCommand : BaseSensorCommand
     {
         public CpuPowerCommand()
-            : base("CPU Power", "CPU Package Power", "Hardware Monitor")
+            : base("CPU Power", "CPU Package Power", "HW Monitor - CPU")
         {
         }
 

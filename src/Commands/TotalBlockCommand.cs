@@ -23,7 +23,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
 
         public TotalBlockCommand()
-            : base("Total Load (Block)", "TOTAL Load Block View", "Hardware Monitor")
+            : base("Total Load (Block)", "TOTAL Load Block View", "HW Monitor - ETC")
         {
         }
 

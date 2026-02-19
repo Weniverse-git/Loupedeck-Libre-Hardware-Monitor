@@ -11,7 +11,7 @@ namespace Loupedeck.LLHMPlugin.Commands
     public class CpuTemperatureCommand : BaseSensorCommand
     {
         public CpuTemperatureCommand()
-            : base("CPU Temp", "CPU Core Temperature", "Hardware Monitor")
+            : base("CPU Temp", "CPU Core Temperature", "HW Monitor - CPU")
         {
         }
 

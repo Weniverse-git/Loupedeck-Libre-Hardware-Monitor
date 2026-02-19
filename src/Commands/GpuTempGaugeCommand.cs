@@ -21,7 +21,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor RedColor = new BitmapColor(255, 50, 50);
 
         public GpuTempGaugeCommand()
-            : base("GPU Temp (Gauge)", "GPU Temp Gauge View", "Hardware Monitor")
+            : base("GPU Temp (Gauge)", "GPU Temp Gauge View", "HW Monitor - GPU")
         {
         }
 

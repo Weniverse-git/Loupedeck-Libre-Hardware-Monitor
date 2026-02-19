@@ -21,7 +21,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
 
         public RamLoadBlockCommand()
-            : base("RAM Load (Block)", "RAM Load Block View", "Hardware Monitor")
+            : base("RAM Load (Block)", "RAM Load Block View", "HW Monitor - RAM")
         {
         }
 

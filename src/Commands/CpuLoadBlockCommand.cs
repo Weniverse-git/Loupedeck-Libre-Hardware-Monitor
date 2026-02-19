@@ -20,7 +20,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
 
         public CpuLoadBlockCommand()
-            : base("CPU Load (Block)", "CPU Load Block View", "Hardware Monitor")
+            : base("CPU Load (Block)", "CPU Load Block View", "HW Monitor - CPU")
         {
         }
 

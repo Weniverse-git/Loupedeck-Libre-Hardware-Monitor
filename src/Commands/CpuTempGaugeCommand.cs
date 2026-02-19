@@ -21,7 +21,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor RedColor = new BitmapColor(255, 50, 50);
 
         public CpuTempGaugeCommand()
-            : base("CPU Temp (Gauge)", "CPU Temp Gauge View", "Hardware Monitor")
+            : base("CPU Temp (Gauge)", "CPU Temp Gauge View", "HW Monitor - CPU")
         {
         }
 

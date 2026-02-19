@@ -13,7 +13,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string SensorId = "/memory/dimm/3/temperature/0";
 
         public RamTemperatureCommand()
-            : base("RAM Temp", "RAM Temperature", "Hardware Monitor")
+            : base("RAM Temp", "RAM Temperature", "HW Monitor - RAM")
         {
         }
 

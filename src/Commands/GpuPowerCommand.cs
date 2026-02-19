@@ -11,7 +11,7 @@ namespace Loupedeck.LLHMPlugin.Commands
     public class GpuPowerCommand : BaseSensorCommand
     {
         public GpuPowerCommand()
-            : base("GPU Power", "GPU Package Power", "Hardware Monitor")
+            : base("GPU Power", "GPU Package Power", "HW Monitor - GPU")
         {
         }
 

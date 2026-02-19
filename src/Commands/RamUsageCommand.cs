@@ -13,7 +13,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private const string LoadSensorId = "/ram/load/0";
 
         public RamUsageCommand()
-            : base("RAM Usage", "Memory Usage", "Hardware Monitor")
+            : base("RAM Usage", "Memory Usage", "HW Monitor - RAM")
         {
         }
 

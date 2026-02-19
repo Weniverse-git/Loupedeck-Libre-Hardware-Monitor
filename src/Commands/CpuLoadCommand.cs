@@ -11,7 +11,7 @@ namespace Loupedeck.LLHMPlugin.Commands
     public class CpuLoadCommand : BaseSensorCommand
     {
         public CpuLoadCommand()
-            : base("CPU Load", "CPU Total Usage", "Hardware Monitor")
+            : base("CPU Load", "CPU Total Usage", "HW Monitor - CPU")
         {
         }
 

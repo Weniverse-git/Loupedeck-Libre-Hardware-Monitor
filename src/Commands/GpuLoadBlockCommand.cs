@@ -20,7 +20,7 @@ namespace Loupedeck.LLHMPlugin.Commands
         private static readonly BitmapColor FillColor = new BitmapColor(255, 60, 60);
 
         public GpuLoadBlockCommand()
-            : base("GPU Load (Block)", "GPU Core Load Block View", "Hardware Monitor")
+            : base("GPU Load (Block)", "GPU Core Load Block View", "HW Monitor - GPU")
         {
         }
 
