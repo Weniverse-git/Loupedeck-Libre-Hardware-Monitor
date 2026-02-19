@@ -14,7 +14,7 @@
 ![Plugin Preview](docs/images/preview.png)
 
 *Currently tested on AMD CPUs / Nvidia GPUs only*
-### 29 Dynamic Actions across 3 View Types
+### 32 Dynamic Actions across 4 View Types
 
 **Text View** — sensor value displayed as text
 
@@ -32,6 +32,7 @@
 | GPU Power | GPU power (W) |
 | CPGPU Power | CPU + GPU combined power (W) |
 | NVMe #0–#4 Temp | NVMe drive temperatures |
+| Network Speed | Upload/Download speed (auto-detects active NIC) |
 
 <br>
 
@@ -47,6 +48,17 @@
 
 - Each block represents 5% (except Total Load)
 - Each block represents 20% (only Total Load)
+
+<br>
+
+**Summary View** — multiple sensors combined in one button
+
+| Action | Description |
+|--------|-------------|
+| CPU Summary | Load %, Power (W), Temperature (°C) in 3 lines |
+| GPU Summary | Load %, Power (W), Temperature (°C) in 3 lines |
+
+- Each line is independently color-coded by its own threshold
 
 <br>
 
@@ -98,7 +110,7 @@ Text View and Gauge View share the same per-component thresholds.
 2. Double-click the downloaded file
 3. Open Loupedeck - Show and Hide Plugins - Settings - install plugin from file - select `LLHMPlugin.lplug4`
 4. Show plugin Hardware Monitor
-5. Find actions under the **Hardware Monitor** category
+5. Find actions under the **HW Monitor** categories (CPU, GPU, Storage, ETC)
 6. Drag lists as you want
 
 ![Installation](https://github.com/user-attachments/assets/27bd3657-cf12-4d61-812a-40038723ca31)
@@ -143,7 +155,7 @@ This is a **known bug in LHM v0.9.5** ([DiskInfoToolkit Issue #6](https://github
 
 This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
 
-### Supported Hardware (v1.2.0+)
+### Supported Hardware (v1.2.2+)
 
 | Component | Supported Vendors |
 |-----------|-------------------|
@@ -151,6 +163,7 @@ This plugin **automatically detects** your CPU and GPU from LHM's HTTP API.
 | GPU | NVIDIA, AMD (Radeon), Intel |
 | RAM | All (fixed path) |
 | NVMe | `/nvme/0/` ~ `/nvme/4/` |
+| NIC | All (auto-detects active interface) |
 
 > **Note:** The plugin auto-detects your hardware at startup. No manual configuration needed. Check `http://localhost:8085/data.json` to verify LHM is running.
 
