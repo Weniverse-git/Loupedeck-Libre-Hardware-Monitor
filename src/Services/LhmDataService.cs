@@ -20,6 +20,9 @@ namespace Loupedeck.LLHMPlugin.Services
         // SensorId → SensorNode 매핑 (스레드 안전하게 교체)
         private volatile Dictionary<string, SensorNode> _sensors = new Dictionary<string, SensorNode>();
 
+        private static LhmDataService _instance;
+
+        public static LhmDataService Instance => _instance;
         /// <summary>연결 상태. true면 데이터 수신 중.</summary>
         public bool IsConnected { get; private set; }
 
