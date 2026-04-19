@@ -7,7 +7,6 @@ namespace Loupedeck.LLHMPlugin.Commands
 
     public class GpuPinAmperageMultiCommand : BaseSensorCommand
     {
-        // Constants for better maintainability and "clean code"
         private const Double WarningThreshold = 7.5;
         private const Double CriticalThreshold = 9.2;
         private const Int32 TotalPins = 6;
@@ -23,12 +22,10 @@ namespace Loupedeck.LLHMPlugin.Commands
         {
             for (var i = 0; i < TotalPins; i++)
             {
-                // GPU sensor paths usually start at 1
                 var pinIndex = i + 1;
                 var sensorPath = $"/gpu-nvidia/0/current/{pinIndex}";
                 var sensor = service.GetSensor(sensorPath);
                 
-                // Optimization: Parse once here and pass the value down
                 var ampValue = sensor != null ? LhmDataService.ParseValue(sensor.Value) : 0.0;
                 
                 var pinColor = this.GetThresholdColor(ampValue);
