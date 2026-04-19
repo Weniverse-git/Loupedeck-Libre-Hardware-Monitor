@@ -37,6 +37,16 @@ namespace Loupedeck.LLHMPlugin.Services
             public string DownloadSensorId { get; set; }
         }
 
+        // GPU Pin Amperage 센서 경로 쌍
+        public class GpuPinDataGroup
+        {
+            public string Pin1Id { get; set; }
+            public string Pin2Id { get; set; }
+            public string Pin3Id { get; set; }
+            public string Pin4Id { get; set; }
+            public string Pin5Id { get; set; }
+            public string Pin6Id { get; set; }
+        }
         // 탐지 상태
         public bool IsCpuDetected => !string.IsNullOrEmpty(CpuPrefix);
         public bool IsGpuDetected => !string.IsNullOrEmpty(GpuPrefix);
@@ -243,6 +253,28 @@ namespace Loupedeck.LLHMPlugin.Services
 
         /// <summary>GPU VRAM 총량 센서 경로 (MB)</summary>
         public string GetGpuVramTotalPath() => IsGpuDetected ? $"{GpuPrefix}/smalldata/2" : null;
+
+        // ============================================================
+        // GPU Specific Pin Sensors (12VHPWR)
+        // ============================================================
+
+        /// <summary>GPU Pin 1 Amperage path</summary>
+        public string GetGpuPin1AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/0" : null;
+
+        /// <summary>GPU Pin 2 Amperage path</summary>
+        public string GetGpuPin2AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/1" : null;
+
+        /// <summary>GPU Pin 3 Amperage path</summary>
+        public string GetGpuPin3AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/2" : null;
+
+        /// <summary>GPU Pin 4 Amperage path</summary>
+        public string GetGpuPin4AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/3" : null;
+
+        /// <summary>GPU Pin 5 Amperage path</summary>
+        public string GetGpuPin5AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/4" : null;
+
+        /// <summary>GPU Pin 6 Amperage path</summary>
+        public string GetGpuPin6AmperagePath() => IsGpuDetected ? $"{GpuPrefix}/amperage/5" : null;
 
         // ============================================================
         // NIC 센서 경로 메서드
