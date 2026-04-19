@@ -33,7 +33,7 @@ namespace Loupedeck.LLHMPlugin.Commands
                 
                 // Dynamic color selection
                 BitmapColor pinColor;
-                if (ampValue >= 9.0) pinColor = new BitmapColor(255, 0, 0);      // Red (Dangerous)
+                if (ampValue >= 9.2) pinColor = new BitmapColor(255, 0, 0);      // Red (Dangerous)
                 else if (ampValue >= 7.5) pinColor = new BitmapColor(255, 255, 0); // Yellow (Warning)
                 else pinColor = new BitmapColor(0, 255, 0);                       // Green (Safe)
 
@@ -49,7 +49,6 @@ namespace Loupedeck.LLHMPlugin.Commands
 
         private void DrawColumnPin(BitmapBuilder builder, SensorNode sensor, int pinNumber, int xOffset, int yOffset, BitmapColor color)
         {
-            // Match the tiny text size in the photo
             int fontSizeLabel = 10;
             int fontSizeValue = 12;
 
@@ -59,7 +58,6 @@ namespace Loupedeck.LLHMPlugin.Commands
             // Parse and format the value (e.g., "0.82A")
             string ampText = "N/A";
             if (sensor != null) {
-                // We use the ParseValue from your LhmDataService
                 var amp = LhmDataService.ParseValue(sensor.Value);
                 ampText = $"{amp:F2}A"; 
             }
